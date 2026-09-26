@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>State-wise Jobs | NaukriSetu</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        header {
+            background: #0b1f3a;
+            padding: 18px 7%;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffc107;
+        }
+
+        .hero {
+            background: #0b1f3a;
+            color: white;
+            padding: 55px 7%;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #d7deea;
+            margin-bottom: 25px;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .search-box {
+            display: flex;
+            gap: 10px;
+            max-width: 750px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 15px 25px;
+            background: #ffc107;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .content {
+            padding: 40px 0;
+        }
+
+        .content h2 {
+            margin-bottom: 20px;
+            color: #0b1f3a;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #0b1f3a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            margin: 7px 0;
+        }
+
+        .tag {
+            display: inline-block;
+            background: #e8eef7;
+            color: #0b1f3a;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 16px;
+            background: #0b1f3a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .empty {
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            color: #666;
+        }
+
+        footer {
+            background: #0b1f3a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Naukri<span>Setu</span>
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>State-wise Job Search</h1>
+
+        <p>
+            Find jobs according to their location.
+        </p>
+
+        <form class="search-box"
+              action="/state"
+              method="get">
+
+            <input
+                type="text"
+                name="state"
+                placeholder="Enter state or location..."
+                value="{{ state_name }}"
+                required
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<div class="container content">
+
+    {% if state_name %}
+
+        <h2>
+            Jobs for "{{ state_name }}"
+        </h2>
+
+        {% if jobs %}
+
+            {% for job in jobs %}
+
+                <div class="card">
+
+                    <span class="tag">
+                        Job
+                    </span>
+
+                    <h3>
+                        {{ job["title"] }}
+                    </h3>
+
+                    <p>
+                        <strong>Organization:</strong>
+                        {{ job["organization"] }}
+                    </p>
+
+                    <p>
+                        <strong>Location:</strong>
+                        {{ job["location"] or "Not specified" }}
+                    </p>
+
+                    <p>
+                        <strong>Qualification:</strong>
+                        {{ job["qualification"] or "Not specified" }}
+                    </p>
+
+                    <p>
+                        <strong>Last Date:</strong>
+                        {{ job["last_date"] or "Not specified" }}
+                    </p>
+
+                    <a
+                        class="btn"
+                        href="{{ url_for('job_details', job_id=job['id']) }}"
+                    >
+                        View Job
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="empty">
+                No jobs found for this location.
+            </div>
+
+        {% endif %}
+
+    {% else %}
+
+        <div class="empty">
+            Enter a state or location to search for jobs.
+        </div>
+
+    {% endif %}
+
+</div>
+
+
+<footer>
+
+    © 2026 NaukriSetu — Sahi Jankari • Behtar Bhavishya
+
+</footer>
+
+</body>
+
+</html>

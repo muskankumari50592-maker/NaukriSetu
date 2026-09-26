@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Job - NaukriSetu</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            margin: 0;
+        }
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .container {
+            width: 80%;
+            max-width: 700px;
+            margin: 40px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        h1 {
+            color: #123c69;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 11px;
+            margin-top: 6px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        textarea {
+            height: 100px;
+            resize: vertical;
+        }
+
+        button {
+            width: 100%;
+            margin-top: 25px;
+            padding: 13px;
+            background: #123c69;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0d2f52;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>NaukriSetu</h2>
+</header>
+
+<div class="container">
+
+    <h1>Add New Job</h1>
+
+    <form method="POST">
+
+        <label>Job Title</label>
+        <input type="text" name="title" placeholder="Example: Junior Engineer Recruitment 2026" required>
+
+        <label>Organization</label>
+        <input type="text" name="organization" placeholder="Example: Indian Railways" required>
+
+        <label>Qualification</label>
+        <input type="text" name="qualification" placeholder="Example: B.Tech / Diploma">
+
+        <label>Vacancies</label>
+        <input type="number" name="vacancies" placeholder="Example: 250">
+
+        <label>Last Date</label>
+        <input type="text" name="last_date" placeholder="Example: 30 October 2026">
+
+        <label>Job Type</label>
+        <select name="job_type">
+            <option value="Government">Government</option>
+            <option value="Private">Private</option>
+            <option value="Internship">Internship</option>
+        </select>
+
+        <label>Location</label>
+        <input type="text" name="location" placeholder="Example: All India">
+
+        <label>Description</label>
+        <textarea name="description" placeholder="Enter job description"></textarea>
+
+        <label>Apply Link</label>
+        <input type="text" name="apply_link" placeholder="https://example.com/apply">
+
+        <button type="submit">
+            Add Job
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Search | NaukriSetu</title>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f5f7fb;
+            color: #172033;
+        }
+
+        header {
+            background: #0b1f3a;
+            padding: 18px 7%;
+        }
+
+        .logo {
+            color: white;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffc107;
+        }
+
+        .hero {
+            background: #0b1f3a;
+            color: white;
+            padding: 50px 7%;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            color: #d7deea;
+            margin-bottom: 25px;
+        }
+
+        .search-box {
+            display: flex;
+            max-width: 750px;
+            gap: 10px;
+        }
+
+        .search-box input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+        }
+
+        .search-box button {
+            padding: 15px 28px;
+            background: #ffc107;
+            border: none;
+            border-radius: 6px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .container {
+            width: 86%;
+            max-width: 1100px;
+            margin: auto;
+        }
+
+        .results {
+            padding: 40px 0;
+        }
+
+        .results h2 {
+            margin-bottom: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 22px;
+            margin-bottom: 18px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+        }
+
+        .card h3 {
+            color: #0b1f3a;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #555;
+            margin: 7px 0;
+        }
+
+        .type {
+            display: inline-block;
+            background: #e8eef7;
+            color: #0b1f3a;
+            padding: 5px 10px;
+            border-radius: 4px;
+            font-size: 13px;
+            margin-bottom: 10px;
+        }
+
+        .btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 9px 16px;
+            background: #0b1f3a;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .empty {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            color: #666;
+        }
+
+        footer {
+            background: #0b1f3a;
+            color: white;
+            text-align: center;
+            padding: 25px;
+            margin-top: 40px;
+        }
+
+        @media(max-width: 600px) {
+
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .search-box {
+                flex-direction: column;
+            }
+
+            .search-box button {
+                width: 100%;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="logo">
+        Naukri<span>Setu</span>
+    </div>
+
+</header>
+
+
+<section class="hero">
+
+    <div class="container">
+
+        <h1>Global Search</h1>
+
+        <p>
+            Search jobs, results, admit cards, answer keys,
+            admissions, scholarships and more.
+        </p>
+
+
+        <form class="search-box"
+              action="/search"
+              method="get">
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Search jobs, exams, organizations..."
+                value="{{ query }}"
+                required
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+
+<div class="container results">
+
+
+    {% if query %}
+
+        <h2>
+            Search Results for "{{ query }}"
+        </h2>
+
+
+        {% if results %}
+
+            {% for result in results %}
+
+                <div class="card">
+
+                    <div class="type">
+                        {{ result.type }}
+                    </div>
+
+
+                    <h3>
+                        {{ result.title }}
+                    </h3>
+
+
+                    {% if result.organization %}
+
+                        <p>
+                            <strong>Organization:</strong>
+                            {{ result.organization }}
+                        </p>
+
+                    {% endif %}
+
+
+                    {% if result.category %}
+
+                        <p>
+                            <strong>Category:</strong>
+                            {{ result.category }}
+                        </p>
+
+                    {% endif %}
+
+
+                    <a
+                        class="btn"
+                        href="{{ result.link }}"
+                    >
+                        View Details
+                    </a>
+
+                </div>
+
+            {% endfor %}
+
+
+        {% else %}
+
+            <div class="empty">
+
+                <h3>No Results Found</h3>
+
+                <p>
+                    Try searching with another job,
+                    exam or organization name.
+                </p>
+
+            </div>
+
+        {% endif %}
+
+
+    {% else %}
+
+        <div class="empty">
+
+            <h3>Search NaukriSetu</h3>
+
+            <p>
+                Enter something in the search box
+                to find information.
+            </p>
+
+        </div>
+
+    {% endif %}
+
+
+</div>
+
+
+<footer>
+
+    © 2026 NaukriSetu — Sahi Jankari • Behtar Bhavishya
+
+</footer>
+
+
+</body>
+
+</html>

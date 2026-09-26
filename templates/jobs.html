@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Latest Jobs - NaukriSetu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 16px 6%;
+        }
+
+        .header-container {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 20px;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd166;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #123c69, #1d5d94);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #e5edf5;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 90%;
+            max-width: 1250px;
+            margin: 40px auto;
+        }
+
+        /* SEARCH */
+
+        .search-area {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            margin-bottom: 30px;
+        }
+
+        .search-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr auto;
+            gap: 10px;
+        }
+
+        .search-row input,
+        .search-row select {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #d5d9df;
+            border-radius: 5px;
+            outline: none;
+        }
+
+        .search-btn {
+            border: none;
+            background: #123c69;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        /* PAGE TITLE */
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 {
+            color: #123c69;
+        }
+
+        .job-count {
+            color: #666;
+            font-size: 14px;
+        }
+
+        /* JOB GRID */
+
+        .jobs-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            padding: 23px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            transition: 0.2s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f0f8;
+            color: #123c69;
+            padding: 5px 9px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .job-card h3 {
+            color: #123c69;
+            font-size: 19px;
+            margin-bottom: 9px;
+            line-height: 1.4;
+        }
+
+        .organization {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .job-info {
+            color: #555;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .job-description {
+            color: #666;
+            line-height: 1.5;
+            font-size: 14px;
+            margin-top: 14px;
+        }
+
+        .job-buttons {
+            display: flex;
+            gap: 10px;
+            margin-top: 18px;
+        }
+
+        .details-btn,
+        .apply-btn {
+            text-decoration: none;
+            padding: 9px 13px;
+            border-radius: 5px;
+            font-size: 13px;
+        }
+
+        .details-btn {
+            background: #eef3f8;
+            color: #123c69;
+        }
+
+        .apply-btn {
+            background: #123c69;
+            color: white;
+        }
+
+        /* NO JOBS */
+
+        .no-jobs {
+            background: white;
+            padding: 50px;
+            text-align: center;
+            border-radius: 10px;
+            color: #666;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b2947;
+            color: white;
+            margin-top: 60px;
+            padding: 35px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 12px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d5dce4;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #36506a;
+            margin-top: 25px;
+            padding-top: 15px;
+            color: #c8d2dc;
+            font-size: 13px;
+        }
+
+        /* RESPONSIVE */
+
+        @media (max-width: 1000px) {
+
+            nav {
+                display: none;
+            }
+
+            .jobs-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .search-row {
+                grid-template-columns: 1fr 1fr;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .jobs-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .search-row {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Naukri<span>Setu</span>
+        </div>
+
+        <nav>
+
+            <a href="/">Home</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+            <a href="/syllabus">Syllabus</a>
+            <a href="/career">Career</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <h1>Latest Jobs</h1>
+
+    <p>
+        Find Government, Private and Internship opportunities
+        on NaukriSetu.
+    </p>
+
+</section>
+
+
+<!-- MAIN -->
+
+<div class="container">
+
+
+    <!-- SEARCH -->
+
+    <div class="search-area">
+
+        <form method="GET" action="/jobs">
+
+            <div class="search-row">
+
+                <input
+                    type="text"
+                    name="search"
+                    placeholder="Search job title or organization"
+                >
+
+                <select name="job_type">
+
+                    <option value="">Job Type</option>
+                    <option value="Government">Government</option>
+                    <option value="Private">Private</option>
+                    <option value="Internship">Internship</option>
+
+                </select>
+
+
+                <select name="location">
+
+                    <option value="">Location</option>
+                    <option value="Bihar">Bihar</option>
+                    <option value="Delhi">Delhi</option>
+                    <option value="Uttar Pradesh">Uttar Pradesh</option>
+                    <option value="All India">All India</option>
+
+                </select>
+
+
+                <select name="qualification">
+
+                    <option value="">Qualification</option>
+                    <option value="10th">10th</option>
+                    <option value="12th">12th</option>
+                    <option value="Diploma">Diploma</option>
+                    <option value="Graduate">Graduate</option>
+                    <option value="B.Tech">B.Tech</option>
+
+                </select>
+
+
+                <button class="search-btn" type="submit">
+                    Search
+                </button>
+
+            </div>
+
+        </form>
+
+    </div>
+
+
+    <!-- HEADING -->
+
+    <div class="section-heading">
+
+        <h2>Job Opportunities</h2>
+
+        <div class="job-count">
+
+            {% if jobs %}
+                {{ jobs|length }} Jobs Available
+            {% else %}
+                No Jobs Available
+            {% endif %}
+
+        </div>
+
+    </div>
+
+
+    <!-- JOBS -->
+
+    {% if jobs %}
+
+    <div class="jobs-grid">
+
+        {% for job in jobs %}
+
+        <div class="job-card">
+
+            <span class="badge">
+                {{ job["job_type"] or "Job" }}
+            </span>
+
+            <h3>
+                {{ job["title"] }}
+            </h3>
+
+            <div class="organization">
+                {{ job["organization"] }}
+            </div>
+
+            <div class="job-info">
+                <strong>Qualification:</strong>
+                {{ job["qualification"] or "Not specified" }}
+            </div>
+
+            <div class="job-info">
+                <strong>Vacancies:</strong>
+                {{ job["vacancies"] or "Not specified" }}
+            </div>
+
+            <div class="job-info">
+                <strong>Last Date:</strong>
+                {{ job["last_date"] or "Not specified" }}
+            </div>
+
+            <div class="job-info">
+                <strong>Location:</strong>
+                {{ job["location"] or "Not specified" }}
+            </div>
+
+            {% if job["description"] %}
+
+            <div class="job-description">
+                {{ job["description"] }}
+            </div>
+
+            {% endif %}
+
+
+            <div class="job-buttons">
+
+                <a
+                    href="/job/{{ job['id'] }}"
+                    class="details-btn"
+                >
+                    View Details
+                </a>
+
+
+                {% if job["apply_link"] %}
+
+                <a
+                    href="{{ job['apply_link'] }}"
+                    target="_blank"
+                    class="apply-btn"
+                >
+                    Apply Online
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+
+    {% else %}
+
+    <div class="no-jobs">
+
+        <h3>No Jobs Available</h3>
+
+        <p>
+            New job opportunities will be published here soon.
+        </p>
+
+    </div>
+
+    {% endif %}
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-section">
+
+            <h3>NaukriSetu</h3>
+
+            <p>
+                A centralized platform for jobs, examinations
+                and career opportunities.
+            </p>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Important Links</h3>
+
+            <a href="/jobs">Jobs</a>
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+
+        </div>
+
+
+        <div class="footer-section">
+
+            <h3>Career</h3>
+
+            <a href="/admission">Admission</a>
+            <a href="/scholarship">Scholarship</a>
+            <a href="/exam-calendar">Exam Calendar</a>
+            <a href="/career">Career Guidance</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 NaukriSetu. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+
+</body>
+
+</html>
+```

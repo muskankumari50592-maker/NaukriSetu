@@ -1,0 +1,398 @@
+```html id="m7q2kd"
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{{ job["title"] }} - NaukriSetu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 16px 6%;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd166;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        /* MAIN */
+
+        .container {
+            width: 90%;
+            max-width: 1000px;
+            margin: 45px auto;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: #123c69;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .job-box {
+            background: white;
+            border-radius: 12px;
+            padding: 35px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f0f8;
+            color: #123c69;
+            padding: 7px 12px;
+            border-radius: 5px;
+            font-size: 13px;
+            margin-bottom: 15px;
+        }
+
+        .job-box h1 {
+            color: #123c69;
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .organization {
+            font-size: 18px;
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 30px;
+        }
+
+        /* DETAILS */
+
+        .details-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px;
+            margin-bottom: 30px;
+        }
+
+        .detail-item {
+            background: #f5f7fb;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        .detail-item strong {
+            display: block;
+            color: #123c69;
+            margin-bottom: 7px;
+            font-size: 14px;
+        }
+
+        .detail-item span {
+            color: #444;
+        }
+
+        /* DESCRIPTION */
+
+        .description-section {
+            border-top: 1px solid #ddd;
+            padding-top: 25px;
+        }
+
+        .description-section h2 {
+            color: #123c69;
+            margin-bottom: 12px;
+        }
+
+        .description-section p {
+            color: #555;
+            line-height: 1.7;
+        }
+
+        /* BUTTON */
+
+        .apply-section {
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px solid #ddd;
+        }
+
+        .apply-btn {
+            display: inline-block;
+            background: #123c69;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .apply-btn:hover {
+            background: #0d2f52;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #0b2947;
+            color: white;
+            margin-top: 60px;
+            padding: 25px;
+            text-align: center;
+        }
+
+        footer p {
+            color: #d5dce4;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 700px) {
+
+            nav {
+                display: none;
+            }
+
+            .job-box {
+                padding: 22px;
+            }
+
+            .job-box h1 {
+                font-size: 24px;
+            }
+
+            .details-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- HEADER -->
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Naukri<span>Setu</span>
+        </div>
+
+        <nav>
+
+            <a href="/">Home</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+            <a href="/career">Career</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- CONTENT -->
+
+<div class="container">
+
+    <a href="/jobs" class="back-link">
+        ← Back to Jobs
+    </a>
+
+
+    <div class="job-box">
+
+        <span class="badge">
+            {{ job["job_type"] or "Job" }}
+        </span>
+
+
+        <h1>
+            {{ job["title"] }}
+        </h1>
+
+
+        <div class="organization">
+            {{ job["organization"] }}
+        </div>
+
+
+        <!-- JOB DETAILS -->
+
+        <div class="details-grid">
+
+            <div class="detail-item">
+
+                <strong>Qualification</strong>
+
+                <span>
+                    {{ job["qualification"] or "Not specified" }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <strong>Total Vacancies</strong>
+
+                <span>
+                    {{ job["vacancies"] or "Not specified" }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <strong>Last Date</strong>
+
+                <span>
+                    {{ job["last_date"] or "Not specified" }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <strong>Location</strong>
+
+                <span>
+                    {{ job["location"] or "Not specified" }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <strong>Status</strong>
+
+                <span>
+                    {{ job["status"] or "Active" }}
+                </span>
+
+            </div>
+
+
+            <div class="detail-item">
+
+                <strong>Job Type</strong>
+
+                <span>
+                    {{ job["job_type"] or "Not specified" }}
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <!-- DESCRIPTION -->
+
+        <div class="description-section">
+
+            <h2>Job Description</h2>
+
+            <p>
+                {{ job["description"] or "Detailed information will be available soon." }}
+            </p>
+
+        </div>
+
+
+        <!-- APPLY -->
+
+        {% if job["apply_link"] %}
+
+        <div class="apply-section">
+
+            <a
+                href="{{ job['apply_link'] }}"
+                target="_blank"
+                class="apply-btn"
+            >
+                Apply Online
+            </a>
+
+        </div>
+
+        {% endif %}
+
+
+    </div>
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <p>
+        © 2026 NaukriSetu. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+</body>
+
+</html>
+```
+

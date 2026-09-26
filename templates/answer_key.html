@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Answer Key - NaukriSetu</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f5f7fb;
+            color: #222;
+        }
+
+        header {
+            background: #123c69;
+            color: white;
+            padding: 16px 6%;
+        }
+
+        .header-container {
+            max-width: 1250px;
+            margin: auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 27px;
+            font-weight: bold;
+        }
+
+        .logo span {
+            color: #ffd166;
+        }
+
+        nav {
+            display: flex;
+            gap: 18px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        nav a:hover {
+            color: #ffd166;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #123c69, #1d5d94);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .hero h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .hero p {
+            color: #e5edf5;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .search-box {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            margin-bottom: 30px;
+        }
+
+        .search-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .search-form input {
+            flex: 1;
+            padding: 13px;
+            border: 1px solid #d5d9df;
+            border-radius: 5px;
+            font-size: 14px;
+        }
+
+        .search-form button {
+            background: #123c69;
+            color: white;
+            border: none;
+            padding: 13px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .section-heading {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .section-heading h2 {
+            color: #123c69;
+        }
+
+        .count {
+            color: #666;
+            font-size: 14px;
+        }
+
+        .answer-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .answer-card {
+            background: white;
+            padding: 24px;
+            border-radius: 10px;
+            box-shadow: 0 3px 12px rgba(0,0,0,0.07);
+            transition: 0.2s;
+        }
+
+        .answer-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .badge {
+            display: inline-block;
+            background: #e8f0f8;
+            color: #123c69;
+            padding: 6px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            margin-bottom: 12px;
+        }
+
+        .answer-card h3 {
+            color: #123c69;
+            font-size: 19px;
+            line-height: 1.4;
+            margin-bottom: 10px;
+        }
+
+        .organization {
+            font-weight: bold;
+            color: #444;
+            margin-bottom: 15px;
+        }
+
+        .info {
+            color: #555;
+            font-size: 14px;
+            margin: 8px 0;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #123c69;
+            color: white;
+            padding: 10px 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-size: 14px;
+        }
+
+        .view-btn:hover {
+            background: #0d2f52;
+        }
+
+        footer {
+            background: #0b2947;
+            color: white;
+            margin-top: 60px;
+            padding: 35px 20px 20px;
+        }
+
+        .footer-grid {
+            max-width: 1100px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 30px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 12px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #d5dce4;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+
+        .footer-section a {
+            display: block;
+            text-decoration: none;
+            margin-bottom: 7px;
+        }
+
+        .copyright {
+            text-align: center;
+            border-top: 1px solid #36506a;
+            margin-top: 25px;
+            padding-top: 15px;
+            color: #c8d2dc;
+            font-size: 13px;
+        }
+
+        @media (max-width: 900px) {
+
+            nav {
+                display: none;
+            }
+
+            .answer-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .hero h1 {
+                font-size: 30px;
+            }
+
+            .search-form {
+                flex-direction: column;
+            }
+
+            .answer-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<header>
+
+    <div class="header-container">
+
+        <div class="logo">
+            Naukri<span>Setu</span>
+        </div>
+
+        <nav>
+
+            <a href="/">Home</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+            <a href="/syllabus">Syllabus</a>
+            <a href="/career">Career</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+<section class="hero">
+
+    <h1>Latest Answer Keys</h1>
+
+    <p>
+        Check the latest examination answer keys
+        and updates on NaukriSetu.
+    </p>
+
+</section>
+
+<div class="container">
+
+    <div class="search-box">
+
+        <form
+            class="search-form"
+            method="GET"
+            action="/answer-key"
+        >
+
+            <input
+                type="text"
+                name="search"
+                value="{{ request.args.get('search', '') }}"
+                placeholder="Search examination or organization"
+            >
+
+            <button type="submit">
+                Search
+            </button>
+
+        </form>
+
+    </div>
+
+    <div class="section-heading">
+
+        <h2>Recent Answer Keys</h2>
+
+        <div class="count">
+            {{ answer_keys|length }} Answer Keys
+        </div>
+
+    </div>
+
+    <div class="answer-grid">
+
+        {% for answer in answer_keys %}
+
+        <div class="answer-card">
+
+            <span class="badge">
+                {{ answer['status'] }}
+            </span>
+
+            <h3>
+                {{ answer['title'] }}
+            </h3>
+
+            <div class="organization">
+                {{ answer['organization'] }}
+            </div>
+
+            <div class="info">
+                <strong>Release Date:</strong>
+                {{ answer['release_date'] }}
+            </div>
+
+            <div class="info">
+                <strong>Category:</strong>
+                {{ answer['category'] }}
+            </div>
+
+            {% if answer['answer_key_link'] %}
+
+            <a
+                href="{{ answer['answer_key_link'] }}"
+                class="view-btn"
+                target="_blank"
+            >
+                View Answer Key
+            </a>
+
+            {% endif %}
+
+        </div>
+
+        {% else %}
+
+        <div class="answer-card">
+
+            <h3>No Answer Keys Found</h3>
+
+            <p class="info">
+                No answer key matches your search.
+            </p>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</div>
+
+<footer>
+
+    <div class="footer-grid">
+
+        <div class="footer-section">
+
+            <h3>NaukriSetu</h3>
+
+            <p>
+                A centralized platform for jobs,
+                examinations and career opportunities.
+            </p>
+
+        </div>
+
+        <div class="footer-section">
+
+            <h3>Important Links</h3>
+
+            <a href="/jobs">Jobs</a>
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+
+        </div>
+
+        <div class="footer-section">
+
+            <h3>Career</h3>
+
+            <a href="/admission">Admission</a>
+            <a href="/scholarship">Scholarship</a>
+            <a href="/exam-calendar">Exam Calendar</a>
+            <a href="/career">Career Guidance</a>
+
+        </div>
+
+    </div>
+
+    <div class="copyright">
+
+        © 2026 NaukriSetu. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+</body>
+
+</html>

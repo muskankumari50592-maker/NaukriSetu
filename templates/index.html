@@ -1,0 +1,867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>NaukriSetu - Jobs, Results, Admit Card & Career</title>
+
+    <meta name="description"
+          content="NaukriSetu provides jobs, results, admit cards, answer keys, admissions, scholarships, government schemes and career information.">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background: #f4f7fb;
+            color: #172033;
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* HEADER */
+
+        header {
+            background: #071b3a;
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 3px 15px rgba(0,0,0,0.15);
+        }
+
+        .header-container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 12px 20px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 25px;
+        }
+
+        .logo img {
+            height: 58px;
+            width: auto;
+            display: block;
+            border-radius: 5px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            font-size: 14px;
+            font-weight: 600;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd43b;
+        }
+
+        /* HERO */
+
+        .hero {
+            background: linear-gradient(135deg, #071b3a, #123d73);
+            color: white;
+            padding: 75px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 950px;
+            margin: auto;
+        }
+
+        .hero h1 {
+            font-size: 44px;
+            margin-bottom: 15px;
+            font-weight: 800;
+        }
+
+        .hero h1 span {
+            color: #ffd43b;
+        }
+
+        .hero p {
+            font-size: 18px;
+            color: #dbe7f5;
+            margin-bottom: 30px;
+        }
+
+        /* SEARCH */
+
+        .search-box {
+            max-width: 850px;
+            margin: auto;
+        }
+
+        .search {
+            background: white;
+            padding: 8px;
+            border-radius: 8px;
+            display: flex;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.18);
+        }
+
+        .search input {
+            flex: 1;
+            border: none;
+            outline: none;
+            padding: 15px;
+            font-size: 16px;
+            color: #222;
+        }
+
+        .search button {
+            background: #ffca28;
+            color: #071b3a;
+            border: none;
+            padding: 0 30px;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: 700;
+            cursor: pointer;
+        }
+
+        .search button:hover {
+            background: #ffd84f;
+        }
+
+        /* CONTAINER */
+
+        .container {
+            max-width: 1250px;
+            margin: auto;
+            padding: 50px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .section-title h2 {
+            color: #071b3a;
+            font-size: 30px;
+            margin-bottom: 8px;
+        }
+
+        .section-title p {
+            color: #667085;
+        }
+
+        /* QUICK LINKS */
+
+        .quick-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .quick-card {
+            background: white;
+            padding: 25px 18px;
+            border-radius: 10px;
+            text-align: center;
+            border: 1px solid #e3e8ef;
+            transition: 0.3s;
+        }
+
+        .quick-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .quick-card h3 {
+            color: #071b3a;
+            margin-bottom: 8px;
+        }
+
+        .quick-card p {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* JOB CARDS */
+
+        .job-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .job-card {
+            background: white;
+            border-radius: 10px;
+            padding: 24px;
+            border: 1px solid #e3e8ef;
+            transition: 0.3s;
+        }
+
+        .job-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+
+        .job-card h3 {
+            color: #071b3a;
+            font-size: 19px;
+            margin-bottom: 10px;
+        }
+
+        .job-card p {
+            color: #667085;
+            margin: 6px 0;
+            font-size: 14px;
+        }
+
+        .job-card strong {
+            color: #26364d;
+        }
+
+        .view-btn {
+            display: inline-block;
+            margin-top: 15px;
+            background: #071b3a;
+            color: white;
+            padding: 9px 18px;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .view-btn:hover {
+            background: #123d73;
+        }
+
+        /* CATEGORY GRID */
+
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 18px;
+        }
+
+        .category-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            border: 1px solid #e3e8ef;
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+        }
+
+        .category-card h3 {
+            color: #071b3a;
+            margin-bottom: 8px;
+        }
+
+        .category-card p {
+            font-size: 14px;
+            color: #667085;
+        }
+
+        /* INFO SECTION */
+
+        .info-section {
+            background: white;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 22px;
+        }
+
+        .info-card {
+            border: 1px solid #e3e8ef;
+            border-radius: 10px;
+            padding: 25px;
+            background: #fff;
+        }
+
+        .info-card h3 {
+            color: #071b3a;
+            margin-bottom: 10px;
+        }
+
+        .info-card p {
+            color: #667085;
+            font-size: 14px;
+        }
+
+        /* CTA */
+
+        .cta {
+            background: #071b3a;
+            color: white;
+            text-align: center;
+            padding: 60px 20px;
+        }
+
+        .cta h2 {
+            font-size: 32px;
+            margin-bottom: 12px;
+        }
+
+        .cta p {
+            color: #dbe7f5;
+            margin-bottom: 25px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: #ffd43b;
+            color: #071b3a;
+            padding: 12px 25px;
+            border-radius: 6px;
+            font-weight: 700;
+        }
+
+        /* FOOTER */
+
+        footer {
+            background: #041329;
+            color: white;
+            padding: 45px 20px 20px;
+        }
+
+        .footer-container {
+            max-width: 1250px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 35px;
+        }
+
+        .footer-column h3 {
+            margin-bottom: 15px;
+            color: #ffd43b;
+        }
+
+        .footer-column p {
+            color: #c7d1df;
+            font-size: 14px;
+        }
+
+        .footer-column a {
+            display: block;
+            color: #c7d1df;
+            font-size: 14px;
+            margin: 7px 0;
+        }
+
+        .footer-column a:hover {
+            color: #ffd43b;
+        }
+
+        .copyright {
+            max-width: 1250px;
+            margin: 35px auto 0;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255,255,255,0.12);
+            text-align: center;
+            color: #9eacbd;
+            font-size: 13px;
+        }
+
+        /* MOBILE */
+
+        @media (max-width: 1000px) {
+
+            nav {
+                gap: 12px;
+            }
+
+            nav a {
+                font-size: 13px;
+            }
+
+            .quick-grid,
+            .category-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .job-grid,
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .footer-container {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .header-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            nav {
+                justify-content: center;
+                gap: 10px 15px;
+            }
+
+            nav a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 50px 15px;
+            }
+
+            .hero h1 {
+                font-size: 32px;
+            }
+
+            .hero p {
+                font-size: 15px;
+            }
+
+            .search {
+                flex-direction: column;
+                gap: 8px;
+            }
+
+            .search input {
+                width: 100%;
+            }
+
+            .search button {
+                padding: 13px;
+                width: 100%;
+            }
+
+            .quick-grid,
+            .category-grid,
+            .job-grid,
+            .info-grid,
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+
+            .container {
+                padding: 40px 15px;
+            }
+
+            .section-title h2 {
+                font-size: 25px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+
+<header>
+    <div class="header-container">
+
+        <a href="/" class="logo">
+            <img src="{{ url_for('static', filename='naukri-setu-logo.jpeg') }}"
+             alt="NaukriSetu Logo">
+        </a>
+
+        <nav>
+            <a href="/">Home</a>
+            <a href="/jobs">Jobs</a>
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+            <a href="/syllabus">Syllabus</a>
+            <a href="/admission">Admission</a>
+            <a href="/scholarship">Scholarship</a>
+            <a href="/schemes">Schemes</a>
+            <a href="/exam-calendar">Exam Calendar</a>
+            <a href="/career">Career</a>
+            <a href="/organization">Organization</a>
+            <a href="/state">State-wise Jobs</a>
+        </nav>
+
+    </div>
+</header>
+
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+            Welcome to <span>NaukriSetu</span>
+        </h1>
+
+        <p>
+            Sahi Jankari • Behtar Bhavishya
+        </p>
+
+        <p>
+            Find the latest Jobs, Results, Admit Cards, Scholarships,
+            Government Schemes and Career opportunities in one place.
+        </p>
+
+        <div class="search-box">
+
+            <form class="search" action="/search" method="get">
+
+                <input
+                    type="text"
+                    name="q"
+                    placeholder="Search jobs, results, exams, scholarships..."
+                    required
+                >
+
+                <button type="submit">
+                    Search
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- QUICK ACCESS -->
+
+<section class="container">
+
+    <div class="section-title">
+        <h2>Quick Access</h2>
+        <p>Find important information quickly</p>
+    </div>
+
+    <div class="quick-grid">
+
+        <a href="/jobs" class="quick-card">
+            <h3>Latest Jobs</h3>
+            <p>Government and private job opportunities</p>
+        </a>
+
+        <a href="/results" class="quick-card">
+            <h3>Results</h3>
+            <p>Check latest examination results</p>
+        </a>
+
+        <a href="/admit-card" class="quick-card">
+            <h3>Admit Card</h3>
+            <p>Download examination admit cards</p>
+        </a>
+
+        <a href="/answer-key" class="quick-card">
+            <h3>Answer Key</h3>
+            <p>Check latest examination answer keys</p>
+        </a>
+
+        <a href="/admission" class="quick-card">
+            <h3>Admission</h3>
+            <p>Explore admission opportunities</p>
+        </a>
+
+        <a href="/scholarship" class="quick-card">
+            <h3>Scholarship</h3>
+            <p>Find scholarship information</p>
+        </a>
+
+        <a href="/schemes" class="quick-card">
+            <h3>Government Schemes</h3>
+            <p>Explore useful government schemes</p>
+        </a>
+
+        <a href="/exam-calendar" class="quick-card">
+            <h3>Exam Calendar</h3>
+            <p>Track important examination dates</p>
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- LATEST JOBS -->
+
+<section class="container">
+
+    <div class="section-title">
+        <h2>Latest Jobs</h2>
+        <p>Recently added job opportunities</p>
+    </div>
+
+    <div class="job-grid">
+
+        {% if jobs %}
+
+            {% for job in jobs %}
+
+            <div class="job-card">
+
+                <h3>{{ job["title"] }}</h3>
+
+                <p>
+                    <strong>Organization:</strong>
+                    {{ job["organization"] }}
+                </p>
+
+                <p>
+                    <strong>Qualification:</strong>
+                    {{ job["qualification"] or "Not specified" }}
+                </p>
+
+                <p>
+                    <strong>Location:</strong>
+                    {{ job["location"] or "India" }}
+                </p>
+
+                <p>
+                    <strong>Last Date:</strong>
+                    {{ job["last_date"] or "Check notification" }}
+                </p>
+
+                <a href="/job/{{ job['id'] }}" class="view-btn">
+                    View Details
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        {% else %}
+
+            <div class="info-card">
+                <h3>No Jobs Available</h3>
+                <p>
+                    New job opportunities will appear here after they
+                    are added to the database.
+                </p>
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+
+<!-- EXPLORE CATEGORIES -->
+
+<section class="info-section">
+
+    <div class="container">
+
+        <div class="section-title">
+            <h2>Explore NaukriSetu</h2>
+            <p>Important sections for students and job seekers</p>
+        </div>
+
+        <div class="category-grid">
+
+            <a href="/jobs" class="category-card">
+                <h3>Government Jobs</h3>
+                <p>Explore government recruitment opportunities.</p>
+            </a>
+
+            <a href="/jobs" class="category-card">
+                <h3>Private Jobs</h3>
+                <p>Discover private sector job opportunities.</p>
+            </a>
+
+            <a href="/results" class="category-card">
+                <h3>Exam Results</h3>
+                <p>Access examination result updates.</p>
+            </a>
+
+            <a href="/admit-card" class="category-card">
+                <h3>Admit Cards</h3>
+                <p>Find examination admit card information.</p>
+            </a>
+
+            <a href="/scholarship" class="category-card">
+                <h3>Scholarships</h3>
+                <p>Explore scholarship opportunities.</p>
+            </a>
+
+            <a href="/schemes" class="category-card">
+                <h3>Government Schemes</h3>
+                <p>Find useful government scheme information.</p>
+            </a>
+
+            <a href="/career" class="category-card">
+                <h3>Career Guidance</h3>
+                <p>Explore career paths and useful skills.</p>
+            </a>
+
+            <a href="/exam-calendar" class="category-card">
+                <h3>Exam Calendar</h3>
+                <p>Track upcoming examinations and dates.</p>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CAREER & PREPARATION -->
+
+<section class="container">
+
+    <div class="section-title">
+        <h2>Career & Preparation</h2>
+        <p>Tools and information to support your career journey</p>
+    </div>
+
+    <div class="info-grid">
+
+        <div class="info-card">
+            <h3>Career Guidance</h3>
+            <p>
+                Explore different career paths, required qualifications,
+                skills and learning opportunities.
+            </p>
+
+            <a href="/career" class="view-btn">
+                Explore Career
+            </a>
+        </div>
+
+        <div class="info-card">
+            <h3>Organization Search</h3>
+            <p>
+                Search jobs and result information organization-wise.
+            </p>
+
+            <a href="/organization" class="view-btn">
+                Search Organization
+            </a>
+        </div>
+
+        <div class="info-card">
+            <h3>State-wise Jobs</h3>
+            <p>
+                Search available job information according to location
+                or state.
+            </p>
+
+            <a href="/state" class="view-btn">
+                Search by State
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- CTA -->
+
+<section class="cta">
+
+    <h2>Your Career Journey Starts Here</h2>
+
+    <p>
+        Search jobs, examination updates, scholarships and career
+        information through NaukriSetu.
+    </p>
+
+    <a href="/jobs" class="cta-btn">
+        Explore Latest Jobs
+    </a>
+
+</section>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    <div class="footer-container">
+
+        <div class="footer-column">
+
+            <h3>NaukriSetu</h3>
+
+            <p>
+                NaukriSetu is an information platform designed to
+                bring jobs, examination updates, scholarships,
+                government schemes and career information together
+                in one place.
+            </p>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Jobs</h3>
+
+            <a href="/jobs">Latest Jobs</a>
+            <a href="/organization">Organization Search</a>
+            <a href="/state">State-wise Jobs</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>Exams</h3>
+
+            <a href="/results">Results</a>
+            <a href="/admit-card">Admit Card</a>
+            <a href="/answer-key">Answer Key</a>
+            <a href="/exam-calendar">Exam Calendar</a>
+
+        </div>
+
+
+        <div class="footer-column">
+
+            <h3>More</h3>
+
+            <a href="/admission">Admission</a>
+            <a href="/scholarship">Scholarship</a>
+            <a href="/schemes">Government Schemes</a>
+            <a href="/career">Career</a>
+
+        </div>
+
+    </div>
+
+
+    <div class="copyright">
+
+        © 2026 NaukriSetu. All Rights Reserved.
+
+    </div>
+
+</footer>
+
+</body>
+</html>
